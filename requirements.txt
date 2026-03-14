@@ -1,0 +1,9 @@
+fastapi>=0.111
+uvicorn>=0.26
+langgraph>=0.1
+requests>=2.31
+beautifulsoup4>=4.12
+duckduckgo_search>=2.9
+pyyaml>=6.0
+pydantic>=2.6
+playwright>=1.40

@@ -1,0 +1,18 @@
+# Pre-defined site lists for each agent.
+# Add additional sites by editing this file.
+
+standard:
+  - name: "Walmart"
+    url_template: "https://www.walmart.com/search?q={query}"
+
+used:
+  - name: "Facebook Marketplace"
+    url_template: "https://www.facebook.com/marketplace/search/?query={query}"
+
+# Optional: additional domains to include/exclude for web search.
+web_search:
+  # Domains that should be excluded from the "non-standard" list because they overlap
+  # with the standard/used sources.
+  exclude_domains:
+    - "walmart.com"
+    - "facebook.com"

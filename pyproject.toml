@@ -1,0 +1,25 @@
+[project]
+name = "agentic-deal-finder"
+version = "0.1.0"
+description = "Agentic deal finding toolkit using LangGraph + MCP" 
+authors = ["<your name> <you@example.com>"]
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+
+[project.urls]
+"Homepage" = "https://example.com"
+
+[project.dependencies]
+fastapi = "^0.111"
+uvicorn = "^0.26"
+langgraph = "^0.1"
+requests = "^2.31"
+beautifulsoup4 = "^4.12"
+duckduckgo_search = "^2.9"
+pyyaml = "^6.0"
+pydantic = "^2.6"
+playwright = "^1.40"
+
+[project.scripts]
+agentic-deal-finder = "agentic_deal_finder.__main__:main"
