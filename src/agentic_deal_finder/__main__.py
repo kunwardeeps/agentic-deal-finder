@@ -6,10 +6,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 
+from agentic_deal_finder.config import setup_logging
 from agentic_deal_finder.server import app
 
 
 def main(argv: list[str] | None = None) -> None:
+    # Set up logging first
+    setup_logging()
+
     parser = argparse.ArgumentParser(prog="agentic-deal-finder")
     parser.add_argument("--host", default="127.0.0.1", help="Host to bind the server to")
     parser.add_argument("--port", type=int, default=8000, help="Port to run the server on")
