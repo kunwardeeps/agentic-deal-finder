@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 from agentic_deal_finder.models import Deal
 from agentic_deal_finder.scrapers.browser import fetch_html
 
+import logging
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
@@ -16,6 +17,7 @@ HEADERS = {
     " Chrome/125.0.0.0 Safari/537.36",
 }
 
+logger = logging.getLogger(__name__)
 
 def _parse_price(text: str) -> Optional[float]:
     if not text:
@@ -42,6 +44,7 @@ def search_walmart(query: str, max_results: int = 1) -> list[Deal]:
 
     try:
         html = fetch_html(url)
+        logger.info(f"Fetched HTML for Walmart search: {url}")
     except Exception:
         # Fall back to non-JS fetch if Playwright is unavailable.
         resp = requests.get(url, headers=HEADERS, timeout=15)
