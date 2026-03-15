@@ -7,3 +7,5 @@ duckduckgo_search>=2.9
 pyyaml>=6.0
 pydantic>=2.6
 playwright>=1.40
+pytest>=7.4
+httpx>=0.25

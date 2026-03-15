@@ -13,11 +13,11 @@ class Deal(BaseModel):
     currency: Optional[str]
     url: HttpUrl
     condition: Literal["new", "used", "open-box", "unknown"] = "unknown"
-    retrieved_at: datetime = datetime.utcnow()
+    retrieved_at: datetime = datetime.now()
 
 
 class SearchResult(BaseModel):
     query: str
     deals: list[Deal]
     source: str
-    retrieved_at: datetime = datetime.utcnow()
+    retrieved_at: datetime = datetime.now()
