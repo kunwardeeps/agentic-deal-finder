@@ -51,7 +51,7 @@ curl -X POST "http://127.0.0.1:8000/workflow" -H "Content-Type: application/json
 ### Key Components
 1. **Workflow Endpoint** (`server.py`): Accepts a POST request with a search query, triggers the LangGraph workflow, and returns a report path.
 2. **LangGraph Flow** (`langgraph_flow.py`): Orchestrates the scraping process across standard sites, used sites, and web search, then compiles results.
-3. **Scrapers**: Each scraper implements site-specific logic to extract deal information (title, price, URL, etc.).
+3. **Scrapers**: Each scraper implements site-specific logic to extract deal information (title, price, URL, etc.) with enhanced logging for debugging.
 4. **Report Generation**: Formats collected deals into a Markdown report saved in the `reports/` directory.
 
 ### Configuration
@@ -59,7 +59,12 @@ curl -X POST "http://127.0.0.1:8000/workflow" -H "Content-Type: application/json
   - `standard`: New product listings (e.g., retail sites)
   - `used`: Used/open-box listings (e.g., Facebook Marketplace)
   - `web_search`: General web search with domain exclusions
-- Logging is configured to output to both console and a rotating file (`logs/app.log`).
+- Logging is configured via `setup_logging()` in `config.py` to output to both console and a rotating file (`logs/app.log`).
+- Individual scrapers (like walmart.py) include detailed logging for search operations, including:
+  - Search query initiation
+  - HTML fetch method (Playwright vs requests fallback)
+  - Extracted data (title, price, URL)
+  - Result counts and completion status
 
 ### Data Flow
 1. User sends query to `/workflow` endpoint.

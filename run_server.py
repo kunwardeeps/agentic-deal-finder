@@ -25,4 +25,7 @@ from agentic_deal_finder.__main__ import main
 
 if __name__ == "__main__":
     # Forward CLI args to the package entrypoint.
+    # if no args, run with "--run" to start the server with defaults.
+    if not sys.argv[1:]:
+        sys.argv.append("--run")
     main(argv=sys.argv[1:])
